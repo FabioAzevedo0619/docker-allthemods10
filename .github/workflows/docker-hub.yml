@@ -42,7 +42,7 @@ jobs:
           context: .
           platforms: linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/allthemods10:${{ env.SERVER_VERSION }}
+          tags: ghcr.io/fabioazevedo0619/allthemods10:${{ env.SERVER_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -53,6 +53,6 @@ jobs:
           context: .
           platforms: linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/allthemods10:latest
+          tags: ghcr.io/fabioazevedo0619/allthemods10:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
