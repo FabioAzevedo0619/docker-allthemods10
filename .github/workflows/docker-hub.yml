@@ -30,10 +30,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Build and push the Docker image (versioned tag)
         uses: docker/build-push-action@v6.18.0
         with:
           context: .
+          platforms: linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/allthemods10:${{ env.SERVER_VERSION }}
           cache-from: type=gha
@@ -44,6 +48,7 @@ jobs:
         uses: docker/build-push-action@v6.18.0
         with:
           context: .
+          platforms: linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/allthemods10:latest
           cache-from: type=gha
